@@ -31,5 +31,9 @@ public class PoolAmount
 public enum PoolType
 {
     Bot = 0,
+    Player = 1,
+    Knife = 2,
+    Hammer = 3,
+    Boomerang = 4,
 }
 

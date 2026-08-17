@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae005bfcc357e9418d4053eee1edd4b, type: 3}
+  m_Name: WeaponData
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weapons:
+  - name: Knife
+    type: 0
+    bulletPrefab: {fileID: 5185258973034319900, guid: 21fe2891743d7ca47a6f22f75d6e2620, type: 3}
+    visual: {fileID: 2044804039632402002, guid: bf7ff5e5ff023904790211fdd8044679, type: 3}
+    price: 1
+  - name: Hammer
+    type: 1
+    bulletPrefab: {fileID: 7995316961465780471, guid: 3de514859178b074ab8b34e68f29d86e, type: 3}
+    visual: {fileID: 6139564497210424579, guid: 597394f0c62dfec48a743e13d9024c50, type: 3}
+    price: 1
+  - name: Boomerang
+    type: 2
+    bulletPrefab: {fileID: 843999230223655095, guid: 3a4710db666e56240b4be0feaf0715ed, type: 3}
+    visual: {fileID: 6635799885950174400, guid: af0b0edf5812f5e4f86cfb8640f9a331, type: 3}
+    price: 1

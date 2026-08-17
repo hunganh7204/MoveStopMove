@@ -4,6 +4,11 @@ public class Player : Character
 {
     [SerializeField] private JoyStick joystick;
 
+    private void Start()
+    {
+        OnInit();
+    }
+
     private void FixedUpdate()
     {
         if (IsDead()) return;
