@@ -2,25 +2,27 @@
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-    [SerializeField] private Vector3 offset = new Vector3(0f, 10f, -10f); 
-    [SerializeField] private float smoothSpeed = 5f;
+    [Header("Target & Speed")]
+    [SerializeField] private Transform target;     
+    [SerializeField] private float smoothSpeed = 5f; 
+    [Header("Offsets")]
+    [SerializeField] private Vector3 baseOffset = new Vector3(0, 15, -15); 
+
+    private Vector3 currentOffset;
+
+    private void Awake()
+    {
+        currentOffset = baseOffset;
+    }
 
     private void LateUpdate()
     {
         if (target == null) return;
-        UpdateCameraPosition();
-        LookAtTarget();
-    }
-
-    private void UpdateCameraPosition()
-    {
-        Vector3 desiredPosition = target.position + offset;
+        Vector3 desiredPosition = target.position + currentOffset;
         transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
     }
-
-    private void LookAtTarget()
+    public void UpdateZoom(float playerScale)
     {
-        transform.LookAt(target);
+        currentOffset = baseOffset * playerScale;
     }
 }

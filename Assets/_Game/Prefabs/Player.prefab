@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399822120382154065}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.026264153, w: 0.99965507}
-  m_LocalPosition: {x: -0.03, y: -0.023, z: -0.144}
+  m_LocalRotation: {x: 0, y: 0, z: -0.5369315, w: 0.84362584}
+  m_LocalPosition: {x: -0.25, y: -0.19, z: -0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2196806728968624555}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.01}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -64.95}
 --- !u!1 &1945048704189586542
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   visualPoint: {fileID: 4965143968965351521}
   animator: {fileID: 5816258805202057426}
   rb: {fileID: 6863423237553550735}
+  col: {fileID: 3644026451494415395}
   joystick: {fileID: 0}
 --- !u!54 &6863423237553550735
 Rigidbody:

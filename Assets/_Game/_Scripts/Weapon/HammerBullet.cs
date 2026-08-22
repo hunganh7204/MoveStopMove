@@ -6,7 +6,8 @@ public class HammerBullet : BulletBase
     {
         if(visual != null)
         {
-            visual.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.Self);
+            Vector3 rotateAxis = new Vector3(0, 0, 1);
+            visual.Rotate(rotateAxis * rotateSpeed * Time.deltaTime, Space.Self);
         }
     }
 }

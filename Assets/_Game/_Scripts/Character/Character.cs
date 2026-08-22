@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AdaptivePerformance;
 
 public class Constants
 {
@@ -25,10 +24,37 @@ public class Character : GameUnit
     [SerializeField] protected Transform firePoint;          
     [SerializeField] protected Transform visualPoint;
 
+    [Header("Equipment")]
+    [SerializeField] protected HatData hatData;
+    [SerializeField] protected PantData pantData;
+    [SerializeField] protected AccessoryData accessoryData;
 
+    [Header("Equipment Pos")]
+    [SerializeField] protected Transform hatPos;
+    [SerializeField] protected Transform accessoryPos;
+    [SerializeField] protected Renderer pantRend;
+    
     [Header("References")]
     [SerializeField] protected Animator animator;
     [SerializeField] protected Rigidbody rb;
+    [SerializeField] protected Collider col;
+    [SerializeField] protected Renderer rend;
+
+    [Header("Level System")]
+    public int level = 1;
+    protected float currentExp = 0f;
+    protected float expToNextLevel = 1f;
+
+    [Header("Test Equipment")]
+    [SerializeField] protected string currentHatId;
+    [SerializeField] protected string currentPantId;
+    [SerializeField] protected string currentAccessoryId;
+
+    protected float initialAttackRange;
+    protected float initialMoveSpeed;
+
+    protected GameObject currentHatVisual;
+    protected GameObject currentAccessoryVisual;
 
     protected bool isMoving;
     protected bool isAttacking;
@@ -41,19 +67,113 @@ public class Character : GameUnit
     private bool isDead;
     private string currentAnim = Constants.ANIM_IDLE;
 
+    protected virtual void Awake()
+    {
+        initialAttackRange = attackRange;
+        initialMoveSpeed = moveSpeed;
+    }
+
     public virtual void OnInit()
     {
         SetDead(false);
         isMoving = false;
         isAttacking = false;
         targets.Clear();
+
+        level = 1;
+        currentExp = 0f;
+        expToNextLevel = 1f;
+        attackRange = initialAttackRange;
+        moveSpeed = initialMoveSpeed;
+        TF.localScale = Vector3.one;
+
         IdleAnim();
         ChangeWeapon(currentWeaponType);
+        EquipTestItems();
+    }
+
+    [ContextMenu("Test Change Equipment")]
+    public void EquipTestItems()
+    {
+        ChangeHat(currentHatId);
+        ChangePant(currentPantId);
+        ChangeAccessory(currentAccessoryId);
+    }
+
+    public void AddExp(float amount)
+    {
+        currentExp += amount;
+        while(currentExp > expToNextLevel)
+        {
+            currentExp -= expToNextLevel;
+            LevelUp();
+        }
+    }
+
+    protected virtual void LevelUp()
+    {
+        level++;
+        expToNextLevel = level * 2f;
+        float scaleMultiplier = 1f + (level - 1) * 0.1f;
+        TF.localScale = Vector3.one * scaleMultiplier;
+        attackRange = initialAttackRange * scaleMultiplier;
+        moveSpeed = initialMoveSpeed * (1f + (level - 1) * 0.05f);
+    }
+
+    public virtual void OnHit(Character attacker)
+    {
+        if (IsDead()) return;
+        SetDead(true);
+        if (col != null) col.enabled = false;
+        isMoving = false;
+        if (attackCoroutine != null)
+        {
+            StopCoroutine(attackCoroutine);
+            isAttacking = false;
+        }
+        targets.Clear();
+        if(attacker != null && !attacker.IsDead())
+        {
+            float grantedExp = 1f + (this.level * 1.5f);
+            attacker.AddExp(grantedExp);
+        }
+        StartCoroutine(DeathRoutine());
+    }
+    private IEnumerator DeathRoutine()
+    {
+        DeadAnim();
+        yield return new WaitForSeconds(1.5f);
+
+        float fadeDuration = 1f; 
+        float timer = 0f;
+        
+
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
+            
+            yield return null; 
+        }
+        OnDeath();
+    }
+    public virtual void OnDeath()
+    {
+        if (currentVisualWeapon != null)
+        {
+            currentVisualWeapon.SetActive(false);
+        }
+        SimplePool.Despawn(this);
     }
 
     public bool IsDead() => isDead;
     protected void SetDead(bool dead) => isDead = dead;
     public float ColliderRadius => colliderRadius;
+
+    public float GetAttackRange()
+    {
+        return attackRange;
+    }
 
     public virtual void Move(Vector3 direction)
     {
@@ -152,6 +272,41 @@ public class Character : GameUnit
         }
     }
 
+    public void ChangeHat(string id)
+    {
+        if(hatData == null) return;
+        HatItem item = hatData.GetItem(id);
+        if (item == null) return;
+        if(currentHatVisual != null)
+        {
+            Destroy(currentHatVisual);
+        }
+        currentHatVisual = Instantiate(item.visualPrefab, hatPos);
+        currentHatVisual.transform.localPosition = Vector3.zero;
+        currentHatVisual.transform.localRotation = Quaternion.identity;
+    }
+
+    public void ChangeAccessory(string id)
+    {
+        if(accessoryData == null) return;
+        AccessoryItem item = accessoryData.GetItem(id);
+        if(item == null) return;
+        if (currentAccessoryVisual != null)
+        {
+            Destroy(currentAccessoryVisual);
+        }
+        currentAccessoryVisual = Instantiate(item.visualPrefab, accessoryPos);
+        currentAccessoryVisual.transform.localPosition = Vector3.zero;
+        currentAccessoryVisual.transform.localRotation = Quaternion.identity;
+    }
+
+    public void ChangePant(string id)
+    {
+        if(pantData == null) return;
+        PantItem item = pantData.GetItem(id);
+        if(item == null) return;
+        pantRend.material = item.pantMaterial;
+    }
     protected IEnumerator AttackRoutine(Character target)
     {
         isAttacking = true;
@@ -200,7 +355,6 @@ public class Character : GameUnit
         {
             if (attackCoroutine != null) StopCoroutine(attackCoroutine);
             isAttacking = false;
-            IdleAnim();
             if (currentVisualWeapon != null)
             {
                 currentVisualWeapon.SetActive(true);

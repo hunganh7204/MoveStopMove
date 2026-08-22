@@ -3,16 +3,14 @@
 --- !u!1 &2822246240910679309
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6648353428610824550, guid: 21fe2891743d7ca47a6f22f75d6e2620, type: 3}
-  m_PrefabInstance: {fileID: 5167501717644630257}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4060738220051192322}
   - component: {fileID: 1029157317105907729}
   - component: {fileID: 9025113037326360850}
-  - component: {fileID: 5474368948487381779}
-  - component: {fileID: 6924476991046360834}
   m_Layer: 0
   m_Name: Bullet_Knife
   m_TagString: Untagged
@@ -23,31 +21,31 @@ GameObject:
 --- !u!4 &4060738220051192322
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6648353428611179846, guid: 21fe2891743d7ca47a6f22f75d6e2620, type: 3}
-  m_PrefabInstance: {fileID: 5167501717644630257}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2822246240910679309}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 41.690052, y: 41.690052, z: 41.690052}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7836249109695554853}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!33 &1029157317105907729
 MeshFilter:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6648353428611982694, guid: 21fe2891743d7ca47a6f22f75d6e2620, type: 3}
-  m_PrefabInstance: {fileID: 5167501717644630257}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2822246240910679309}
   m_Mesh: {fileID: 4300000, guid: ecd6cb62ed8350e498f9e25d15d9caa3, type: 3}
 --- !u!23 &9025113037326360850
 MeshRenderer:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6648353428613080998, guid: 21fe2891743d7ca47a6f22f75d6e2620, type: 3}
-  m_PrefabInstance: {fileID: 5167501717644630257}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2822246240910679309}
   m_Enabled: 1
@@ -93,54 +91,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &5474368948487381779
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5425215154753443058, guid: 21fe2891743d7ca47a6f22f75d6e2620, type: 3}
-  m_PrefabInstance: {fileID: 5167501717644630257}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2822246240910679309}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &6924476991046360834
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6983778587978547002, guid: 21fe2891743d7ca47a6f22f75d6e2620, type: 3}
-  m_PrefabInstance: {fileID: 5167501717644630257}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2822246240910679309}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.004296659, y: 0.023079036, z: 0.0020119464}
-  m_Center: {x: -0.0000026705675, y: -0.00003497163, z: -4.9697673e-19}
 --- !u!1 &7211738892724491743
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +101,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7836249109695554853}
   - component: {fileID: 5185258973034319900}
+  - component: {fileID: 3929799259459212313}
+  - component: {fileID: 8174763085405299500}
   m_Layer: 0
   m_Name: Bullet_Knife
   m_TagString: Untagged
@@ -190,62 +142,53 @@ MonoBehaviour:
   speed: 10
   visual: {fileID: 4060738220051192322}
   rotateSpeed: 720
-  rb: {fileID: 5474368948487381779}
-  col: {fileID: 6924476991046360834}
---- !u!1001 &5167501717644630257
-PrefabInstance:
+  rb: {fileID: 8174763085405299500}
+  col: {fileID: 3929799259459212313}
+--- !u!65 &3929799259459212313
+BoxCollider:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 7836249109695554853}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Name
-      value: Bullet_Knife
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.x
-      value: 0.00000008146034
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211738892724491743}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.101409286, y: 0.16656332, z: 0.89407057}
+  m_Center: {x: -0.005488515, y: -0.006822966, z: -0.01672104}
+--- !u!54 &8174763085405299500
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211738892724491743}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

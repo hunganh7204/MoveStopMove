@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e753fab8850b74fb5537cb30ae27e6, type: 3}
+  m_Name: PantData
+  m_EditorClassIdentifier: Assembly-CSharp::PantData
+  items:
+  - id: 1
+    name: batman
+    pantMaterial: {fileID: 2100000, guid: 0c68a94ce83a04241abdf3cf81a65599, type: 2}
+    price: 1
+    bonusMoveSpeed: 0
+  - id: 2
+    name: cauvong
+    pantMaterial: {fileID: 2100000, guid: 317e293cf3d088a4c915285a3567fd88, type: 2}
+    price: 1
+    bonusMoveSpeed: 0
+  - id: 3
+    name: comy
+    pantMaterial: {fileID: 2100000, guid: bf2f5fb7039189243a7f12666a0f2ad5, type: 2}
+    price: 1
+    bonusMoveSpeed: 0
+  - id: 4
+    name: dabao
+    pantMaterial: {fileID: 2100000, guid: 3b111f3eacb50dc4d9c9963ae1db2835, type: 2}
+    price: 1
+    bonusMoveSpeed: 0

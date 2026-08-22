@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletBase : GameUnit
 {
@@ -13,12 +13,6 @@ public class BulletBase : GameUnit
     [SerializeField] protected Rigidbody rb;
     [SerializeField] protected Collider col;
 
-    protected virtual void Awake()
-    {
-        rb.useGravity = false;
-        rb.isKinematic = true;
-        col.isTrigger = true;
-    }
 
     public virtual void OnInit(Character shooter, Vector3 direction, float attackRange)
     {
@@ -56,13 +50,13 @@ public class BulletBase : GameUnit
     }
     protected virtual void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"<color=yellow>[TEST] Đạn chạm vào Component có tên là: {other.gameObject.name}</color>");
         if (shooter == null) return;
         Character hitTarget = other.GetComponent<Character>();
         if(hitTarget != null && hitTarget != shooter && !hitTarget.IsDead())
         {
-
             Debug.Log($"{shooter.gameObject.name} hit {hitTarget.gameObject.name}");
-            //TODO: hit logic
+            hitTarget.OnHit(shooter);
             OnDespawn();
         }
     }

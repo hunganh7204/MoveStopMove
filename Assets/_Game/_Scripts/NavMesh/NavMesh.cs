@@ -74,4 +74,26 @@ public class BotNavMesh : MonoBehaviour
         result = Vector3.zero;
         return false;
     }
+    public void DisableAgent()
+    {
+        if (agent != null)
+        {
+            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+            {
+                agent.isStopped = true;
+                agent.ResetPath(); 
+                agent.velocity = Vector3.zero; 
+            }
+
+            agent.enabled = false;
+        }
+    }
+
+    public void EnableAgent()
+    {
+        if (agent != null && !agent.enabled)
+        {
+            agent.enabled = true;
+        }
+    }
 }

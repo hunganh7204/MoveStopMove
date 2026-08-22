@@ -3,6 +3,7 @@
 public class Player : Character
 {
     [SerializeField] private JoyStick joystick;
+    [SerializeField] private CameraFollow cam;
 
     private void Start()
     {
@@ -24,5 +25,11 @@ public class Player : Character
                 TryStartAttack(GetFirstTarget());
             }
         }
+    }
+
+    protected override void LevelUp()
+    {
+        base.LevelUp();
+        cam.UpdateZoom(TF.localScale.x);
     }
 }
